@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>	Лабораторная работа №1</title>
+<link rel = "stylesheet" href = "table.css"/>
+<body alink=#39352a link=#898176 vlink=#898176>
+<div class="header">
+<ul>
+	<li><h1>Таблица</h1></li>
+	<li><a href = "osebe.html"><font size = 5>Основная страница</font></a></li>
+	<li><a href = "page2.html"><font size = 5>Позиционирование элементов</font></a></li>
+</ul>
+</div>
+<div class="table">
+<table>
+<caption>Зелености</caption>
+<thead>
+	<tr>
+		<th>Семейство</th>
+		<th>Род</th>
+		<th>Вид</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Ароидные</td>
+		<td>Шеффлера</td>
+		<td>Лучелистная</td>
+	</tr>
+	<tr>
+		<td>Акантовые</td>
+		<td>Фиттония</td>
+		<td>Бамбина</td>
+	</tr>
+	<tr>
+		<td>Ароидные</td>
+		<td>Монстера</td>
+		<td>Привлекательная</td>
+	</tr>
+	<tr>
+		<td>Рутовые</td>
+		<td>Цитрус</td>
+		<td>Мандарин</td>
+	</tr>
+	<tr>
+		<td>Ароидные</td>
+		<td>Спатифиллум</td>
+		<td>Уоллиса</td>
+	</tr>
+</tbody>
+</table>
+</div>
+<div class = "form">
+<form id = "f" onsubmit="event.preventDefault(); add();">
+	<label for="Sem">Семейство:</label>
+        <input type="text" id="Sem" name="Sem" required>
+
+        <label for="Rod">Род:</label>
+        <input type="text" id="Rod" name="Rod" required>
+
+        <label for="Vid">Вид:</label>
+        <input type="text" id="Vid" name="Vid" required>
+
+        <button type="submit">Добавить</button>
+</form>
+</div>
+
+    <script>  
+        function add() 
+	{  
+            const table = document.querySelector("table tbody");  
+            const newRow = document.createElement("tr");  
+
+            const fields = ["Sem", "Rod", "Vid"];  
+            fields.forEach(field => {  
+                const td = document.createElement("td");  
+                td.textContent = document.getElementById(field).value;  
+                newRow.appendChild(td);  
+            });  
+
+            table.appendChild(newRow);  
+
+            document.getElementById("f").reset();  
+        }  
+    </script>  
